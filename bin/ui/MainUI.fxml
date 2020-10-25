@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.MainUIController">
+   <top>
+      <MenuBar BorderPane.alignment="CENTER">
+        <menus>
+          <Menu fx:id="menubook" mnemonicParsing="false" text="Book">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#addbookmenuClick" text="Add Book" />
+               </items>        
+          <items>
+                  <MenuItem mnemonicParsing="false" onAction="#showbookmenuClick" text="List Book" />
+               </items>
+                       
+          </Menu>
+          <Menu fx:id="authormenu" mnemonicParsing="false" text="Author">
+               <items>
+                  <MenuItem fx:id="addauthormenuitem" mnemonicParsing="false" onAction="#addaddauthormenuitemclick" text="Add Author" />
+                  <MenuItem fx:id="listauthormenuitem" mnemonicParsing="false" text="LIst Author" />
+               </items></Menu>
+          <Menu fx:id="studentmenu" mnemonicParsing="false" text="Student">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Add Student" />
+                  <MenuItem mnemonicParsing="false" text="List Student" />
+               </items></Menu>
+            <Menu fx:id="rentmenu" mnemonicParsing="false" text="Rent">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Rent Book" />
+                  <MenuItem mnemonicParsing="false" text="Return Book" />
+               </items></Menu>
+            <Menu fx:id="logoutmenuitem" mnemonicParsing="false" text="Logout" />
+        </menus>
+      </MenuBar>
+   </top>
+</BorderPane>

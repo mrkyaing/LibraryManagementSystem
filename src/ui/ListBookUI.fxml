@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="233.0" prefWidth="440.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.ListBookUIController">
+   <children>
+      <TableView fx:id="booktable" layoutX="8.0" layoutY="7.0" prefHeight="184.0" prefWidth="411.0">
+        <columns>
+          <TableColumn fx:id="idcol" prefWidth="75.0" text="Id" />
+          <TableColumn fx:id="namecol" prefWidth="75.0" text="Name" />
+            <TableColumn fx:id="desccol" prefWidth="75.0" text="Description" />
+            <TableColumn fx:id="unitpricecol" prefWidth="75.0" text="UnitPrice" />
+            <TableColumn fx:id="authorcol" prefWidth="75.0" text="Author" />
+        </columns>
+      </TableView>
+      <Button fx:id="btnAddBook" layoutX="14.0" layoutY="198.0" mnemonicParsing="false" onAction="#btnAddBookClick" prefHeight="27.0" prefWidth="107.0" text="Add Book" />
+   </children>
+</AnchorPane>
