@@ -1,8 +1,12 @@
 package ui;
 
+import dao.AuthorService;
+import dao.IAuthorDAO;
+import entity.Author;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.control.Alert.AlertType;
 
 public class AddAuthorUIController {
 	@FXML
@@ -30,9 +34,40 @@ public class AddAuthorUIController {
     private TextField txtauthorphone;
     
     public void btnSaveClick(ActionEvent e) {
+    	IAuthorDAO dao=new AuthorService();
+    	String name=this.txtauthorname.getText();
+    	String email=this.txtauthoremail.getText();
+    	String gender=null;
+    	if(rdomale.isSelected()) {
+    		gender="male";
+    	}else if(rdofemale.isSelected()) {
+    		gender="female";
+    	}
+    	String phone=txtauthorphone.getText();
+    	String address=txtauthoraddress.getText();
+    	Author author=new Author(name,email,gender,phone,address);
+    	
+    		if(dao.save(author)) {
+    			showDialog("Author save success",AlertType.INFORMATION,"success");
+    		}  		
+    		else{
+    		showDialog("Error occur when saving data",AlertType.ERROR,"error");
+    	}
+    	
     	
     }
     public void btnCancelClick(ActionEvent e) {
-    	
+    	txtauthoraddress.clear();
+    	txtauthoremail.clear();
+    	txtauthorphone.clear();
+    	txtauthorname.clear();
+    	rdofemale.setSelected(false);
+    	rdomale.setSelected(false);
+    }
+    private void showDialog(String msg,AlertType alttype,String title) {
+    	Alert alert=new Alert(alttype);
+    	 alert.setTitle(title);
+    	 alert.setHeaderText(msg);
+    	 alert.show();
     }
 }

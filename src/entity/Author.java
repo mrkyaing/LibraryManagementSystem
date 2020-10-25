@@ -1,14 +1,12 @@
 package entity;
 
 public class Author {
-private Long id;
+private Long id;//primary key 
 private String name;
 private String email;
 private String gender;
 private String phone;
 private String address;
-
-
 
 public Author(String name, String email, String gender, String phone, String address) {
 	this.name = name;
