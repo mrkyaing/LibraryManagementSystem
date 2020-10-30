@@ -7,7 +7,7 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.MainUIController">
    <top>
-      <MenuBar BorderPane.alignment="CENTER">
+      <MenuBar fx:id="menuid" BorderPane.alignment="CENTER">
         <menus>
           <Menu fx:id="menubook" mnemonicParsing="false" text="Book">
                <items>
@@ -21,7 +21,7 @@
           <Menu fx:id="authormenu" mnemonicParsing="false" text="Author">
                <items>
                   <MenuItem fx:id="addauthormenuitem" mnemonicParsing="false" onAction="#addaddauthormenuitemclick" text="Add Author" />
-                  <MenuItem fx:id="listauthormenuitem" mnemonicParsing="false" text="LIst Author" />
+                  <MenuItem fx:id="listauthormenuitem" mnemonicParsing="false" onAction="#Listauthormenuitemclick" text="LIst Author" />
                </items></Menu>
           <Menu fx:id="studentmenu" mnemonicParsing="false" text="Student">
                <items>
@@ -33,7 +33,10 @@
                   <MenuItem mnemonicParsing="false" text="Rent Book" />
                   <MenuItem mnemonicParsing="false" text="Return Book" />
                </items></Menu>
-            <Menu fx:id="logoutmenuitem" mnemonicParsing="false" text="Logout" />
+            <Menu fx:id="logoutmenuitem" mnemonicParsing="false" onAction="#Logout" text="Logout">
+               <items>
+                  <MenuItem fx:id="itemlogout" mnemonicParsing="false" onAction="#Logout" text="Logout" />
+               </items></Menu>
         </menus>
       </MenuBar>
    </top>

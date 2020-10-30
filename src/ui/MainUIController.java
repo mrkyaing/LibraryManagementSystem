@@ -9,10 +9,14 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Menu;
+import javafx.scene.control.MenuBar;
+import javafx.scene.control.MenuItem;
 import javafx.stage.Stage;
 
 public class MainUIController {
-	 @FXML
+	@FXML
+    private MenuBar menuid;
+	@FXML
 	    private Menu menubook;
 
 	    @FXML
@@ -47,6 +51,24 @@ public class MainUIController {
 	    	Scene sence=new Scene(root);
 	    	stage.setScene(sence);
 	    	stage.setTitle("Add Author");
+	    	stage.show();
+	    }
+	    public void Listauthormenuitemclick(ActionEvent e) throws IOException {
+	    	Stage stage=new Stage();
+	    	Parent root=FXMLLoader.load(getClass().getResource("/ui/ListAuthorUI.fxml"));
+	    	Scene sence=new Scene(root);
+	    	stage.setScene(sence);
+	    	stage.setTitle("List Author");
+	    	stage.show();
+	    }
+	    public void Logout(ActionEvent e) throws IOException {
+	    	Stage menustage = (Stage) menuid.getScene().getWindow();
+	    	menustage.close();	
+	    	Parent root=FXMLLoader.load(getClass().getResource("/ui/LoginUI.fxml"));
+	    	Scene sence=new Scene(root);
+	    	Stage stage=new Stage();
+	    	stage.setScene(sence);
+	    	stage.setTitle("Login");
 	    	stage.show();
 	    }
 }

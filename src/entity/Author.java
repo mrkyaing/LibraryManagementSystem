@@ -8,6 +8,14 @@ private String gender;
 private String phone;
 private String address;
 
+public Author(String id,String name, String email, String gender, String phone, String address) {
+	this.id=Long.parseLong(id);
+	this.name = name;
+	this.email = email;
+	this.gender = gender;
+	this.phone = phone;
+	this.address = address;
+}
 public Author(String name, String email, String gender, String phone, String address) {
 	this.name = name;
 	this.email = email;

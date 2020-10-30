@@ -3,7 +3,11 @@ package dao;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 import entity.Author;
 
@@ -38,7 +42,26 @@ public class AuthorService implements IAuthorDAO{
 		return true;
 	}
 	@Override
-	public void getAllAuthor() {
-		
+	public List<Author> getAllAuthor() {
+		List<Author> list=new ArrayList<Author>();
+		try {
+			Connection con=DriverManager.getConnection(url, user, password);
+			if(con!=null) {
+				System.out.println("db connection is ok.");
+			}
+			String sql="select * from author";
+			Statement stmt=con.createStatement();
+			ResultSet rs=stmt.executeQuery(sql);
+			while(rs.next()) {
+				Author author=new Author(rs.getString(1),rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6));
+			    list.add(author);
+			}
+			stmt.close();
+			con.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			
+		}	
+		return list;
 	}
 }

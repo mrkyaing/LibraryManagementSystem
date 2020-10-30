@@ -13,6 +13,7 @@ public class Main extends Application {
 			//load fxml ui path
 			Parent root =FXMLLoader.load(getClass().getResource("/ui/LoginUI.fxml"));
 			Scene scene = new Scene(root);
+			scene.getStylesheets().add(getClass().getResource("/ui/application.css").toExternalForm());
 			primaryStage.setScene(scene);
 			primaryStage.setTitle("Login");
 			primaryStage.setResizable(false);
