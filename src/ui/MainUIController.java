@@ -8,6 +8,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
@@ -62,13 +65,21 @@ public class MainUIController {
 	    	stage.show();
 	    }
 	    public void Logout(ActionEvent e) throws IOException {
-	    	Stage menustage = (Stage) menuid.getScene().getWindow();
-	    	menustage.close();	
-	    	Parent root=FXMLLoader.load(getClass().getResource("/ui/LoginUI.fxml"));
-	    	Scene sence=new Scene(root);
-	    	Stage stage=new Stage();
-	    	stage.setScene(sence);
-	    	stage.setTitle("Login");
-	    	stage.show();
+	    	Alert alert = new Alert(AlertType.CONFIRMATION, "Are you Sure to logout?", ButtonType.YES, ButtonType.NO);
+	    	alert.showAndWait();
+
+	    	if (alert.getResult() == ButtonType.YES) {
+	    		Stage menustage = (Stage) menuid.getScene().getWindow();
+		    	menustage.close();	
+		    	Parent root=FXMLLoader.load(getClass().getResource("/ui/LoginUI.fxml"));
+		    	Scene sence=new Scene(root);
+		    	Stage stage=new Stage();
+		    	stage.setScene(sence);
+		    	stage.setTitle("Login");
+		    	stage.show();
+	    	}
+	    	
+	    	
 	    }
+	    
 }
