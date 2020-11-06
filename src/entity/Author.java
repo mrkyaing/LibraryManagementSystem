@@ -7,7 +7,9 @@ private String email;
 private String gender;
 private String phone;
 private String address;
-
+public Author() {
+	
+}
 public Author(String id,String name, String email, String gender, String phone, String address) {
 	this.id=Long.parseLong(id);
 	this.name = name;

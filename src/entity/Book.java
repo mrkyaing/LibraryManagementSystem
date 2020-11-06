@@ -6,7 +6,6 @@ private String name,description;
 private int unitprice;
 private Author author;
 
-
 public Book(String name, String description, int unitprice, Author author) {
 	this.name = name;
 	this.description = description;

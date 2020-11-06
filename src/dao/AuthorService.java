@@ -11,14 +11,12 @@ import java.util.List;
 
 import entity.Author;
 
-public class AuthorService implements IAuthorDAO{
-    String url="jdbc:mysql://localhost:3306/libmgtdb";
-    String user="root";
-    String password="root@123";    
+public class AuthorService extends DBUtilitity implements IAuthorDAO{
+   
 	@Override
 	public boolean save(Author author) {
 		try {
-			Connection con=DriverManager.getConnection(url, user, password);
+			Connection con=getConnection();
 			if(con!=null) {
 				System.out.println("db connection is ok.");
 			}
@@ -63,5 +61,27 @@ public class AuthorService implements IAuthorDAO{
 			
 		}	
 		return list;
+	}
+	@Override
+	public Author getAuthorById(Long id) {
+		Author author=null;
+		try {
+			Connection con=DriverManager.getConnection(url, user, password);
+			if(con!=null) {
+				System.out.println("db connection is ok.");
+			}
+			String sql="select * from author where id= '"+id+"'";
+			Statement stmt=con.createStatement();
+			ResultSet rs=stmt.executeQuery(sql);
+			while(rs.next()) {
+			author=new Author(rs.getString(1),rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6));		    
+			}
+			stmt.close();
+			con.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			
+		}
+		return author;
 	}
 }

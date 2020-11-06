@@ -15,9 +15,9 @@
       <TextField fx:id="txtname" layoutX="157.0" layoutY="86.0" prefHeight="26.0" prefWidth="199.0" />
       <TextField fx:id="txtdescription" layoutX="157.0" layoutY="124.0" prefHeight="26.0" prefWidth="199.0" />
       <TextField fx:id="txtuniptrice" layoutX="157.0" layoutY="162.0" prefHeight="26.0" prefWidth="199.0" />
-      <Button fx:id="btnCancel" layoutX="176.0" layoutY="261.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="83.0" text="Cancel" />
-      <Button fx:id="btnSave" layoutX="264.0" layoutY="261.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="73.0" text="Save" />
+      <Button fx:id="btnCancel" layoutX="176.0" layoutY="261.0" mnemonicParsing="false" onAction="#CancelAction" prefHeight="37.0" prefWidth="83.0" text="Cancel" />
+      <Button fx:id="btnSave" layoutX="264.0" layoutY="261.0" mnemonicParsing="false" onAction="#SaveAction" prefHeight="37.0" prefWidth="73.0" text="Save" />
       <Label layoutX="76.0" layoutY="209.0" text="Author:" />
-      <ComboBox fx:id="cboauthorList" layoutX="157.0" layoutY="214.0" prefHeight="28.0" prefWidth="199.0" />
+      <ComboBox fx:id="cboauthorList" layoutX="157.0" layoutY="214.0" onAction="#CboAction" prefHeight="28.0" prefWidth="199.0" />
    </children>
 </AnchorPane>
