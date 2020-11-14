@@ -5,7 +5,16 @@ private Long id;
 private String name,description;
 private int unitprice;
 private Author author;
-
+public Book() {
+	
+}
+public Book(Long id,String name, String description, int unitprice, Author author) {
+	this.id=id;
+	this.name = name;
+	this.description = description;
+	this.unitprice = unitprice;
+	this.author = author;
+}
 public Book(String name, String description, int unitprice, Author author) {
 	this.name = name;
 	this.description = description;
@@ -42,7 +51,4 @@ public Author getAuthor() {
 public void setAuthor(Author author) {
 	this.author = author;
 }
-
-
-
 }

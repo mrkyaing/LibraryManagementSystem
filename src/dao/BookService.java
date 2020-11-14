@@ -2,7 +2,10 @@ package dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.List;
 
 import entity.Book;
@@ -37,8 +40,26 @@ public class BookService extends DBUtilitity implements IBookDAO {
 
 	@Override
 	public List<Book> getAll() {
-		// TODO Auto-generated method stub
-		return null;
+		List<Book> data=new ArrayList<Book>();
+		String query="select * from book";
+	    Connection con=getConnection();
+	    try {
+			Statement stmt=con.createStatement();
+			ResultSet rs=stmt.executeQuery(query);
+			while(rs.next()) {
+		    Book book=new Book();
+		    book.setId(rs.getLong(1));
+		    book.setName(rs.getString(2));
+		    book.setDescription(rs.getString(3));
+		    book.setUnitprice(rs.getInt(4));
+		    //book.setAuthor(rs.getString(5));
+			data.add(book);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return data;
 	}
 
 }

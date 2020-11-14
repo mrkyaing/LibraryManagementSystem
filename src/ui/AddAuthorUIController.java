@@ -9,6 +9,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.Alert.AlertType;
 
 public class AddAuthorUIController {
+	Author author;
 	@FXML
     private TextField txtauthorname;
 
@@ -32,7 +33,19 @@ public class AddAuthorUIController {
 
     @FXML
     private TextField txtauthorphone;
-    
+    public void setAuthor(Author a) {
+    	this.author=a;
+    	this.txtauthorname.setText(a.getName());
+        this.txtauthoremail.setText(a.getEmail());
+        this.txtauthoraddress.setText(a.getAddress());
+        this.txtauthorphone.setText(a.getPhone());
+        if(a.getGender().equals("male")) {
+        	rdomale.setSelected(true);
+        }
+        else if(a.getGender().equals("female")) {
+        	rdofemale.setSelected(true);
+        }
+    }
     public void btnSaveClick(ActionEvent e) {
     	IAuthorDAO dao=new AuthorService();
     	String name=this.txtauthorname.getText();
@@ -46,7 +59,7 @@ public class AddAuthorUIController {
     	String phone=txtauthorphone.getText();
     	String address=txtauthoraddress.getText();
     	Author author=new Author(name,email,gender,phone,address);
-    	
+  	
     		if(dao.save(author)) {
     			showDialog("Author save success",AlertType.INFORMATION,"success");
     		}  		

@@ -11,4 +11,6 @@ public interface IAuthorDAO {
 boolean save(Author author);//will save data.
 List<Author> getAllAuthor();//will get all data.
 Author getAuthorById(Long id);
+boolean update(Author author);
+boolean delete(Long id);
 }

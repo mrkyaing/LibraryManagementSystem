@@ -84,4 +84,33 @@ public class AuthorService extends DBUtilitity implements IAuthorDAO{
 		}
 		return author;
 	}
+	@Override
+	public boolean update(Author author) {
+		
+		try {
+			Connection con=getConnection();			
+			String sql="update author set name=?,email=?,gender=?,phone=?,address=? where ";
+			PreparedStatement pstmt=con.prepareStatement(sql);
+			pstmt.setString(1,author.getName());
+			pstmt.setString(2, author.getEmail());
+			pstmt.setString(3,author.getGender());
+			pstmt.setString(4, author.getPhone());
+			pstmt.setString(5, author.getAddress());
+			int insertedrowcount=pstmt.executeUpdate();
+			if(insertedrowcount>0) {
+				System.out.println("insert author success");
+			}
+			pstmt.close();
+			con.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return false;
+		}	
+		return true;
+	}
+	@Override
+	public boolean delete(Long id) {
+		// TODO Auto-generated method stub
+		return false;
+	}
 }

@@ -7,7 +7,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="233.0" prefWidth="440.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.ListBookUIController">
    <children>
-      <TableView fx:id="booktable" layoutX="8.0" layoutY="7.0" prefHeight="184.0" prefWidth="411.0">
+      <TableView fx:id="booktable" layoutX="8.0" layoutY="7.0" onMouseClicked="#clickItem" prefHeight="184.0" prefWidth="411.0">
         <columns>
           <TableColumn fx:id="idcol" prefWidth="75.0" text="Id" />
           <TableColumn fx:id="namecol" prefWidth="75.0" text="Name" />
