@@ -89,13 +89,14 @@ public class AuthorService extends DBUtilitity implements IAuthorDAO{
 		
 		try {
 			Connection con=getConnection();			
-			String sql="update author set name=?,email=?,gender=?,phone=?,address=? where ";
+			String sql="update author set name=?,email=?,gender=?,phone=?,address=? where id=?";
 			PreparedStatement pstmt=con.prepareStatement(sql);
 			pstmt.setString(1,author.getName());
 			pstmt.setString(2, author.getEmail());
 			pstmt.setString(3,author.getGender());
 			pstmt.setString(4, author.getPhone());
 			pstmt.setString(5, author.getAddress());
+			pstmt.setLong(6,author.getId());
 			int insertedrowcount=pstmt.executeUpdate();
 			if(insertedrowcount>0) {
 				System.out.println("insert author success");

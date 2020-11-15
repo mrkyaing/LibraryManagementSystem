@@ -9,7 +9,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.Alert.AlertType;
 
 public class AddAuthorUIController {
-	Author author;
+	Author editAuthor;
 	@FXML
     private TextField txtauthorname;
 
@@ -34,7 +34,7 @@ public class AddAuthorUIController {
     @FXML
     private TextField txtauthorphone;
     public void setAuthor(Author a) {
-    	this.author=a;
+    	this.editAuthor=a;
     	this.txtauthorname.setText(a.getName());
         this.txtauthoremail.setText(a.getEmail());
         this.txtauthoraddress.setText(a.getAddress());
@@ -44,6 +44,9 @@ public class AddAuthorUIController {
         }
         else if(a.getGender().equals("female")) {
         	rdofemale.setSelected(true);
+        }
+        if(a!=null) {
+        	btnSave.setText("Update");
         }
     }
     public void btnSaveClick(ActionEvent e) {
@@ -59,12 +62,23 @@ public class AddAuthorUIController {
     	String phone=txtauthorphone.getText();
     	String address=txtauthoraddress.getText();
     	Author author=new Author(name,email,gender,phone,address);
-  	
-    		if(dao.save(author)) {
-    			showDialog("Author save success",AlertType.INFORMATION,"success");
-    		}  		
-    		else{
-    		showDialog("Error occur when saving data",AlertType.ERROR,"error");
+  	     if(btnSave.getText().equals("Update"))
+  	     {
+  	    	 author.setId(this.editAuthor.getId());
+  	    	 if(dao.update(author)) {
+     			showDialog("Author Update success",AlertType.INFORMATION,"update");
+     		}  		
+     		else{
+     		showDialog("Error occur when updating data",AlertType.ERROR,"error");
+     		}
+     		}else {
+  	    	 if(dao.save(author)) {
+     			showDialog("Author save success",AlertType.INFORMATION,"success");
+     		}  		
+     		else{
+     		showDialog("Error occur when saving data",AlertType.ERROR,"error"); 
+  	     }
+  	    	
     	}
     	
     	
