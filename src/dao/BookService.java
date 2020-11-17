@@ -7,10 +7,11 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-
 import entity.Book;
+import viewmodel.bookviewmodel;
 
 public class BookService extends DBUtilitity implements IBookDAO {
+
 
 	@Override
 	public boolean create(Book book) {
@@ -39,20 +40,20 @@ public class BookService extends DBUtilitity implements IBookDAO {
 	}
 
 	@Override
-	public List<Book> getAll() {
-		List<Book> data=new ArrayList<Book>();
-		String query="select * from book";
+	public List<bookviewmodel> getAll() {
+		List<bookviewmodel> data=new ArrayList<bookviewmodel>();
+		String query="select book.id,book.name,book.description,book.unitprice,author.name from book inner join author on book.authorid=author.id";
 	    Connection con=getConnection();
 	    try {
 			Statement stmt=con.createStatement();
 			ResultSet rs=stmt.executeQuery(query);
 			while(rs.next()) {
-		    Book book=new Book();
+			bookviewmodel book=new bookviewmodel();
 		    book.setId(rs.getLong(1));
 		    book.setName(rs.getString(2));
 		    book.setDescription(rs.getString(3));
 		    book.setUnitprice(rs.getInt(4));
-		    //book.setAuthor(rs.getString(5));
+		    book.setAuthorName(rs.getString(5));
 			data.add(book);
 			}
 		} catch (SQLException e) {

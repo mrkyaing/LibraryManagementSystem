@@ -64,6 +64,14 @@ public class MainUIController {
 	    	stage.setTitle("List Author");
 	    	stage.show();
 	    }
+	    public void addStudentmenuitemclick(ActionEvent e) throws IOException {
+	    	Stage stage=new Stage();
+	    	Parent root=FXMLLoader.load(getClass().getResource("/ui/AddStudentUI.fxml"));
+	    	Scene sence=new Scene(root);
+	    	stage.setScene(sence);
+	    	stage.setTitle("Add Student");
+	    	stage.show();
+	    }
 	    public void Logout(ActionEvent e) throws IOException {
 	    	Alert alert = new Alert(AlertType.CONFIRMATION, "Are you Sure to logout?", ButtonType.YES, ButtonType.NO);
 	    	alert.showAndWait();

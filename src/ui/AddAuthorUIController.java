@@ -90,6 +90,7 @@ public class AddAuthorUIController {
     	txtauthorname.clear();
     	rdofemale.setSelected(false);
     	rdomale.setSelected(false);
+    	this.btnSave.setText("Save");
     }
     private void showDialog(String msg,AlertType alttype,String title) {
     	Alert alert=new Alert(alttype);

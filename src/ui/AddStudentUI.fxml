@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="472.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.AddStudentUIController">
+   <children>
+      <Label layoutX="87.0" layoutY="76.0" prefHeight="17.0" prefWidth="78.0" text="No:" />
+      <Label layoutX="87.0" layoutY="253.0" prefHeight="17.0" prefWidth="108.0" text="Phone" />
+      <Label layoutX="87.0" layoutY="114.0" prefHeight="17.0" prefWidth="122.0" text="Name:" />
+      <Label layoutX="87.0" layoutY="215.0" prefHeight="17.0" prefWidth="108.0" text=" Email:" />
+      <Label layoutX="87.0" layoutY="296.0" prefHeight="17.0" prefWidth="78.0" text="Address:" />
+      <TextField fx:id="txtno" layoutX="141.0" layoutY="71.0" prefHeight="27.0" prefWidth="340.0" />
+      <TextField fx:id="txtname" layoutX="141.0" layoutY="109.0" prefHeight="27.0" prefWidth="340.0" />
+      <TextField fx:id="txtemail" layoutX="141.0" layoutY="210.0" prefHeight="27.0" prefWidth="340.0" />
+      <TextField fx:id="txtphone" layoutX="141.0" layoutY="248.0" prefHeight="27.0" prefWidth="340.0" />
+      <TextArea fx:id="txtaddress" layoutX="141.0" layoutY="288.0" prefHeight="94.0" prefWidth="340.0" />
+      <Button fx:id="btnsave" layoutX="148.0" layoutY="395.0" mnemonicParsing="false" onAction="#SaveAction" prefHeight="27.0" prefWidth="148.0" text="Save" />
+      <Button fx:id="btnaddress" layoutX="311.0" layoutY="395.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="159.0" text="Cancel" />
+      <RadioButton fx:id="rdomale" layoutX="149.0" layoutY="161.0" mnemonicParsing="false" text="male" />
+      <RadioButton fx:id="rdofemale" layoutX="251.0" layoutY="161.0" mnemonicParsing="false" text="female" />
+      <Label layoutX="80.0" layoutY="161.0" prefHeight="17.0" prefWidth="50.0" text="Gender:" />
+   </children>
+</AnchorPane>

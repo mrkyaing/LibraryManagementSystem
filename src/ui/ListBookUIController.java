@@ -24,6 +24,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import viewmodel.bookviewmodel;
 
 public class ListBookUIController  implements Initializable{
 	IBookDAO dao;
@@ -31,22 +32,22 @@ public class ListBookUIController  implements Initializable{
 		dao=new BookService();
 	}
 	@FXML
-    private TableView<Book> booktable;
+    private TableView<bookviewmodel> booktable;
 
     @FXML
-    private TableColumn<Book,Long> idcol;
+    private TableColumn<bookviewmodel,Long> idcol;
 
     @FXML
-    private TableColumn<Book, String> namecol;
+    private TableColumn<bookviewmodel, String> namecol;
 
     @FXML
-    private TableColumn<Book, String> desccol;
+    private TableColumn<bookviewmodel, String> desccol;
 
     @FXML
-    private TableColumn<Book, Integer> unitpricecol;
+    private TableColumn<bookviewmodel, Integer> unitpricecol;
 
     @FXML
-    private TableColumn<Book, Author> authorcol;
+    private TableColumn<bookviewmodel, String> authorcol;
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -54,12 +55,12 @@ public class ListBookUIController  implements Initializable{
 		this.namecol.setCellValueFactory(new PropertyValueFactory<>("Name"));
 		this.desccol.setCellValueFactory(new PropertyValueFactory<>("Description"));
 		this.unitpricecol.setCellValueFactory(new PropertyValueFactory<>("Unitprice"));
-		this.authorcol.setCellValueFactory(new PropertyValueFactory<>("Author"));
+		this.authorcol.setCellValueFactory(new PropertyValueFactory<>("AuthorName"));
 		booktable.setItems(getBookList());
 		
 	}
-	ObservableList<Book> getBookList(){
-		ObservableList<Book> bookList=FXCollections.observableArrayList();
+	ObservableList<bookviewmodel> getBookList(){
+		ObservableList<bookviewmodel> bookList=FXCollections.observableArrayList();	
 		bookList.addAll(dao.getAll());
 		return bookList;
 	}

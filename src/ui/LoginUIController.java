@@ -53,7 +53,7 @@ public class LoginUIController {
     		Parent root=FXMLLoader.load(getClass().getResource("/ui/MainUI.fxml"));
     		Scene sence=new Scene(root);   		  		
     		stage.setScene(sence);
-    		stage.setTitle("Main Menu");
+    		stage.setTitle("Library Management System");
     		stage.show();
     	}else {
     		this.lblloginStatus.setText("User Name or Password is wrong .");
