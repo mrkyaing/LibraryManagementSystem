@@ -110,8 +110,22 @@ public class AuthorService extends DBUtilitity implements IAuthorDAO{
 		return true;
 	}
 	@Override
-	public boolean delete(Long id) {
-		// TODO Auto-generated method stub
-		return false;
+	public String delete(Long id) {
+		try {
+			Connection con=DriverManager.getConnection(url, user, password);		
+			String sql="delete from author where id=?";
+		    PreparedStatement pstmt=con.prepareStatement(sql);
+		    pstmt.setLong(1,id);
+		    int r=pstmt.executeUpdate();
+		    if(r>0) {
+		    	return null;
+		    }
+			pstmt.close();
+			con.close();
+		} catch (SQLException e) {
+			return "Cannot delete it is using other program.";
+			
+		}
+		return null;
 	}
 }

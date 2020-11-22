@@ -8,7 +8,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.Alert.AlertType;
 
-public class AddAuthorUIController {
+public class AddAuthorUIController extends CommonUI{
 	Author editAuthor;
 	@FXML
     private TextField txtauthorname;
@@ -92,10 +92,5 @@ public class AddAuthorUIController {
     	rdomale.setSelected(false);
     	this.btnSave.setText("Save");
     }
-    private void showDialog(String msg,AlertType alttype,String title) {
-    	Alert alert=new Alert(alttype);
-    	 alert.setTitle(title);
-    	 alert.setHeaderText(msg);
-    	 alert.show();
-    }
+    
 }
