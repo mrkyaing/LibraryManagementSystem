@@ -26,7 +26,7 @@
           <Menu fx:id="studentmenu" mnemonicParsing="false" text="Student">
                <items>
                   <MenuItem mnemonicParsing="false" onAction="#addStudentmenuitemclick" text="Add Student" />
-                  <MenuItem mnemonicParsing="false" text="List Student" />
+                  <MenuItem mnemonicParsing="false" onAction="#ListStudentmenuitemclick" text="List Student" />
                </items></Menu>
             <Menu fx:id="rentmenu" mnemonicParsing="false" text="Rent">
                <items>

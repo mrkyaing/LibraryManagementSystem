@@ -21,7 +21,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
 
-public class AddBookUIController  implements Initializable{
+public class AddBookUIController extends CommonUI implements Initializable{
 	Author author;
 	IBookDAO dao;
 	IAuthorDAO adao;
@@ -97,14 +97,5 @@ public class AddBookUIController  implements Initializable{
 		cboauthorList.setPromptText("select one");
 		
 	}
-   private void showDialog(String msg,AlertType alttype,String title) {
-   	Alert alert=new Alert(alttype);
-   	 alert.setTitle(title);
-   	 alert.setHeaderText(msg);
-   	 alert.show();
-   }
-
-
-
-   
+     
 }

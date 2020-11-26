@@ -26,7 +26,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import viewmodel.bookviewmodel;
 
-public class ListBookUIController  implements Initializable{
+public class ListBookUIController extends CommonUI implements Initializable{
 	IBookDAO dao;
 	public ListBookUIController() {
 		dao=new BookService();

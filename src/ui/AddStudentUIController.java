@@ -8,15 +8,11 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.Alert.AlertType;
 
-public class AddStudentUIController {
-	
+public class AddStudentUIController extends CommonUI{	
 	IStudentDAO dao;
-	
-	
 	public AddStudentUIController() {
 		dao =new StudentService();
 	}
-
 	@FXML
     private TextField txtno;
 
@@ -58,10 +54,5 @@ public class AddStudentUIController {
     		showDialog("Student save fail",AlertType.ERROR,"Error");
     	}
     }
-    private void showDialog(String msg,AlertType alttype,String title) {
-       	Alert alert=new Alert(alttype);
-       	 alert.setTitle(title);
-       	 alert.setHeaderText(msg);
-       	 alert.show();
-       }
+    
 }

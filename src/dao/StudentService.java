@@ -1,5 +1,6 @@
 package dao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import entity.Student;
@@ -35,8 +36,24 @@ public class StudentService extends DBUtilitity implements IStudentDAO{
 	}
 
 	@Override
-	public List<Student> getAllStudent() {		
-		return null;
+	public List<Student> getAllStudent() {	
+		List<Student> list=new ArrayList<Student>();
+		try {
+			Connection con=this.getConnection();
+			String sql="select * from student";
+			Statement stmt=con.createStatement();
+			ResultSet rs=stmt.executeQuery(sql);
+			while(rs.next()) {
+				Student student=new Student(rs.getLong(1),rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6),rs.getString(7));
+			    list.add(student);
+			}
+			stmt.close();
+			con.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			
+		}	
+		return list;
 	}
 
 	@Override
