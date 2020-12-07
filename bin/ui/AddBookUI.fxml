@@ -5,7 +5,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
-
+<?import helper.*?>
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="332.0" prefWidth="474.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.AddBookUIController">
    <children>
       <Label layoutX="163.0" layoutY="45.0" prefHeight="18.0" prefWidth="240.0" text="Add New Book " textFill="#6065b5" />
@@ -14,7 +14,7 @@
       <Label layoutX="76.0" layoutY="166.0" text="Unit Price:" />
       <TextField fx:id="txtname" layoutX="157.0" layoutY="86.0" prefHeight="26.0" prefWidth="199.0" />
       <TextField fx:id="txtdescription" layoutX="157.0" layoutY="124.0" prefHeight="26.0" prefWidth="199.0" />
-      <TextField fx:id="txtuniptrice" layoutX="157.0" layoutY="162.0" prefHeight="26.0" prefWidth="199.0" />
+      <NumberTextField fx:id="txtuniptrice" layoutX="157.0" layoutY="162.0" prefHeight="26.0" prefWidth="199.0" />
       <Button fx:id="btnCancel" layoutX="176.0" layoutY="261.0" mnemonicParsing="false" onAction="#CancelAction" prefHeight="37.0" prefWidth="83.0" text="Cancel" />
       <Button fx:id="btnSave" layoutX="264.0" layoutY="261.0" mnemonicParsing="false" onAction="#SaveAction" prefHeight="37.0" prefWidth="73.0" text="Save" />
       <Label layoutX="76.0" layoutY="209.0" text="Author:" />

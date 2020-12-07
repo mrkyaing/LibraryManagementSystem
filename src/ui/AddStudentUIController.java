@@ -1,5 +1,7 @@
 package ui;
 
+import java.util.regex.Pattern;
+
 import dao.IStudentDAO;
 import dao.StudentService;
 import entity.Student;
@@ -10,9 +12,7 @@ import javafx.scene.control.Alert.AlertType;
 
 public class AddStudentUIController extends CommonUI{	
 	IStudentDAO dao;
-	public AddStudentUIController() {
-		dao =new StudentService();
-	}
+	
 	@FXML
     private TextField txtno;
 
@@ -40,7 +40,14 @@ public class AddStudentUIController extends CommonUI{
     @FXML
     private RadioButton rdofemale;
     
-    public void SaveAction(ActionEvent e) {
+    
+    public AddStudentUIController() {
+		dao =new StudentService();
+		 
+	}
+
+
+	public void SaveAction(ActionEvent e) {
     	String gender=null;
     	if(rdomale.isSelected()) {
     		gender="male";
@@ -55,4 +62,5 @@ public class AddStudentUIController extends CommonUI{
     	}
     }
     
+	
 }
